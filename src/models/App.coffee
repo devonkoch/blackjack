@@ -12,10 +12,10 @@ class window.App extends Backbone.Model
         @get('dealerHand').hit()
 
     # eventually generalize:
-    # @get('playerHand').on 'busted', =>
+    @get('playerHand').on 'busted', =>
       # delete the hit button by modifying the app view
+      @get('playerHand').isBusted
 
 
-
-      # $this).find('.handle').show() / .hide()
+  #    $this).find('.handle').show() / .hide()
 

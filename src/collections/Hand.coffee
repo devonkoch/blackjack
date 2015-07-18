@@ -4,12 +4,16 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer, @isBusted) ->
 
   hit: ->
-
-    @add(@deck.pop())
     if @minScore() > 21
       @isBusted = true
       @trigger 'busted', this
       alert ('busted')
+    card = @deck.pop()
+    @add(card)
+    @trigger 'hit', this
+    card
+
+
 
   stand: ->
     @trigger 'stand', this
